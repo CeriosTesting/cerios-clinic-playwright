@@ -1,0 +1,21 @@
+{
+  "name": "cerios-clinic-playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^22.13.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@axe-core/playwright": "^4.10.1",
+    "dotenv": "^16.4.7"
+  }
+}

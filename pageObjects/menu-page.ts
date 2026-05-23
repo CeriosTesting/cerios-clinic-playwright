@@ -35,6 +35,6 @@ export class MenuPage {
                 break;
         }
 
-        await expect(this._page.getByRole('heading', { level: 1 })).toBeVisible();
+        await expect(this._page.locator('h1')).toContainText(menu.toString());
     }
 }

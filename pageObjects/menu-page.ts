@@ -19,19 +19,19 @@ export class MenuPage {
     async assertUrlAndTitle(menu: MenuItem) {
         switch (menu) {
             case MenuItem.MyAppointments:
-                await expect(this._page).toHaveURL(/.*\/appointments/);
+                await expect(this._page).toHaveURL("/appointments");
                 break;
             case MenuItem.MedicalHistory:
-                await expect(this._page).toHaveURL(/.*\/medical-history/);
+                await expect(this._page).toHaveURL("/medical-history");
                 break;
             case MenuItem.Prescriptions:
-                await expect(this._page).toHaveURL(/.*\/prescriptions/);
+                await expect(this._page).toHaveURL("/prescriptions");
                 break;
             case MenuItem.OurDoctors:
-                await expect(this._page).toHaveURL(/.*\/doctors/);
+                await expect(this._page).toHaveURL("/doctors");
                 break;
             case MenuItem.Profile:
-                await expect(this._page).toHaveURL(/.*\/profile/);
+                await expect(this._page).toHaveURL("/profile");
                 break;
         }
 

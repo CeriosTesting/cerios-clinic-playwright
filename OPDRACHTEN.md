@@ -124,8 +124,18 @@ CSS/XPath.
 
 Record een nieuwe test. Navigeer naar de pagina **Our Doctors** (`http://localhost:5173/doctors`).
 Er staan 3 dokterkaarten op de pagina. Klik op één van de kaarten, bijv. op **Dr. James Smith**.
-Wat valt je op? Hoe bepaalt Playwright welk van de meerdere elementen hij moet klikken?
-Haal de `nth()` er eens weg en kijk wat er gebeurt.
+
+Kijk goed naar de gegenereerde locator. Je zal iets zien als:
+
+    page.locator('div').filter({ hasText: 'JSDr. James SmithGeneral' }).nth(4).click();
+
+Wat valt je op? Waarom staat er `nth(4)`? Dit gaat niet over het kiezen *tussen* 3 dokters — elke
+dokter heeft immers unieke tekst. Het probleem is dat `.filter({ hasText: '...' })` op een brede `div`
+meerdere **geneste** `div`-elementen teruggeeft die allemaal dezelfde tekst bevatten: de kaart zelf,
+de flex-wrapper erbinnen, de tekst-container, enzovoort. Playwright kiest dan met `nth(4)` de
+juiste nesting-laag.
+
+Haal de `nth(4)` er eens weg en kijk wat er gebeurt.
 
 ### 3.2 Opdracht 6
 
@@ -135,13 +145,14 @@ Probeer eens een paar locators om te schrijven naar iets anders dan hetgeen Play
 
 ### 3.3 Opdracht 7 (Bonus)
 
-Na het verwijderen van `nth()`, dat ervoor zorgt dat een specifiek element wordt geklikt, komt Playwright
-met een strictness exception. Dit geeft aan dat er meerdere elementen op basis van jouw locator zijn
-gevonden. Probeer met behulp van het **chainen van locators** de correcte dokterkaart te klikken zonder
-gebruik van `nth()`. Tip: zoek eerst de kaart op basis van de naam van de dokter en klik daarna binnen
-die kaart.
+Na het verwijderen van `nth(4)` geeft Playwright een strictness exception: hij vindt meerdere geneste
+`div`-elementen die allemaal de zoektekst bevatten. De root cause is de te brede `div`-locator.
 
-**Leesvoer** <https://playwright.dev/docs/locators#matching-inside-a-locator>
+Probeer de locator te herschrijven zodat je **niet** begint met een brede `div`, maar met de specifieke
+CSS-klasse van de kaart. Begin op `.card`-niveau en filter daarbinnen op de naam van de dokter —
+zonder gebruik van `nth()`.
+
+**Leesvoer** https://playwright.dev/docs/locators#matching-inside-a-locator
 
 ### 3.4 Opdracht 8 (Bonus)
 

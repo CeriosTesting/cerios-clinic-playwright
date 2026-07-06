@@ -156,10 +156,14 @@ zonder gebruik van `nth()`.
 
 ### 3.4 Opdracht 8 (Bonus)
 
-Met XPath kan je naar beneden navigeren en ook weer omhoog in de DOM, maar met CSS en de andere manieren
-van locators niet. Playwright heeft hier een handige `has`-functionaliteit voor bedacht en de
-mogelijkheid om te filteren. Probeer dit eens uit op de afsprakenpagina (`/appointments`): filter de
-afspraakkaarten met `.filter({ hasText: '...' })`.
+In Opdracht 5 en 7 heb je gezien hoe je met `.filter({ hasText: '...' })` een specifieke kaart uit een
+lijst van gelijkende elementen selecteert — te beginnen bij de specifieke CSS-klasse van de kaart, en
+zonder gebruik te maken van `nth()`. Tijd om deze techniek zelfstandig toe te passen.
+
+Ga naar de afsprakenpagina (`http://localhost:5173/appointments`). Hier staan meerdere afspraakkaarten
+die qua opbouw sterk lijken op de dokterkaarten van eerder. Zoek zelf (bijv. via de DevTools) de
+CSS-klasse van een afspraakkaart en filter daarbinnen op tekst — bijvoorbeeld een dokternaam of datum —
+om één specifieke afspraak te selecteren.
 
 **Leesvoer** <https://playwright.dev/docs/locators#filtering-locators>
 

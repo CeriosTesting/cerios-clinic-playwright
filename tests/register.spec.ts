@@ -1,6 +1,6 @@
 import { test } from './my-test';
 
-test.use({ storageState: undefined });
+test.use({ storageState: { cookies: [], origins: [] } });
 
 test('Register should show submitted email on success screen', async ({ registerPage }) => {
     const email = `test.user.${Date.now()}@example.com`;

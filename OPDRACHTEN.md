@@ -131,7 +131,16 @@ CSS/XPath.
 
 ### 3.1 Opdracht 5
 
-Record een nieuwe test. Navigeer naar de pagina **Our Doctors** (`http://localhost:5173/doctors`).
+Record een nieuwe test. We gaan naar de pagina **Our Doctors** (`http://localhost:5173/doctors`).
+
+> **Let op:** alleen `/login` en `/register` zijn zonder login te bereiken. Alle andere pagina's sturen
+> je terug naar `/login` als je niet bent ingelogd. Elke Playwright test start met een schone browser,
+> dus ook zonder login. Log daarom eerst in via de SSO-flow zoals in Opdracht 2, en klik daarna in het
+> menu op **Our Doctors**.
+>
+> Tip: je kan ook jouw test uit Opdracht 2 als startpunt gebruiken en met **Record at cursor** verder
+> gaan.
+
 Er staan 3 dokterkaarten op de pagina. Klik op één van de kaarten, bijv. op **Dr. James Smith**.
 
 Kijk goed naar de gegenereerde locator. Je zal iets zien als:
@@ -169,7 +178,9 @@ In Opdracht 5 en 7 heb je gezien hoe je met `.filter({ hasText: '...' })` een sp
 lijst van gelijkende elementen selecteert — te beginnen bij de specifieke CSS-klasse van de kaart, en
 zonder gebruik te maken van `nth()`. Tijd om deze techniek zelfstandig toe te passen.
 
-Ga naar de afsprakenpagina (`http://localhost:5173/appointments`). Hier staan meerdere afspraakkaarten
+Ga naar de afsprakenpagina (`http://localhost:5173/appointments`). Ook deze pagina is alleen te zien
+als je bent ingelogd: begin jouw test dus weer met inloggen (zoals in Opdracht 5) en klik daarna in
+het menu op **My Appointments**. Hier staan meerdere afspraakkaarten
 die qua opbouw sterk lijken op de dokterkaarten van eerder. Zoek zelf (bijv. via de DevTools) de
 CSS-klasse van een afspraakkaart en filter daarbinnen op tekst — bijvoorbeeld een dokternaam of datum —
 om één specifieke afspraak te selecteren.
@@ -228,6 +239,18 @@ waarbij de sessie in de *local storage* van de browser wordt bewaard.
 
 Volg het onderdeel *"Basic: shared account in all tests"*. Kom je er niet uit? Vraag de trainer.
 
+Nu de login is opgeslagen, kan je in jouw testen de login-stappen weghalen en direct naar een pagina
+gaan, bijv. `await page.goto('/doctors')`.
+
+Let op: nu start élke test ingelogd. Dat is niet handig voor testen die juist níet ingelogd moeten
+beginnen, zoals de registratietest (Opdracht 1) en de logintesten (Opdracht 9 en 10). Probeer maar
+eens: wat gebeurt er met jouw logintest? Zet voor deze testen de opgeslagen login uit door bovenin het
+testbestand het volgende toe te voegen:
+
+```ts
+test.use({ storageState: { cookies: [], origins: [] } });
+```
+
 **Leesvoer** <https://playwright.dev/docs/auth#basic-shared-account-in-all-tests>
 
 ### 5.2 Opdracht 12
@@ -275,7 +298,11 @@ npm install @axe-core/playwright
 ```
 
 Volg het onderdeel *"Scanning an entire page"* en scan de homepagina of de **Our Doctors**-pagina van
-het Patient Portal. Ondertussen ben je al een expert, dus die trainer heb je niet meer nodig.
+het Patient Portal. Beide pagina's zijn alleen te zien als je bent ingelogd. Dankzij de opgeslagen
+login uit Opdracht 11 gaat dat vanzelf. Krijg je toch de loginpagina te zien? Dan scan je dus de
+verkeerde pagina; controleer dan of jouw storage state goed is ingesteld.
+
+Ondertussen ben je al een expert, dus die trainer heb je niet meer nodig.
 
 **Leesvoer** <https://playwright.dev/docs/accessibility-testing#scanning-an-entire-page>
 

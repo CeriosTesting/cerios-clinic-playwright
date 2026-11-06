@@ -2,6 +2,15 @@
 
 ---
 
+> **Waar maak je de opdrachten?**
+>
+> Alle opdrachten maak je in jouw eigen Playwright project dat je tijdens de installatie hebt aangemaakt:
+> de map **`C:\GIT\cerios-playwright`** (zie [INSTALLATION.md](INSTALLATION.md#3-installatie-playwright)).
+> Open deze map in VS Code via **File -> Open Folder …** voordat je begint. Nieuwe testen komen in de
+> map `tests` van dat project.
+
+---
+
 ## Inhoud
 
 1. [Record and playback](#1-record-and-playback)
@@ -195,8 +204,9 @@ Gebruik één van de vooraf aangemaakte patiëntaccounts, bijv. `patient.wilson@
 
 ### 4.2 Opdracht 10
 
-Maak in de bestaande folder `pageObjects` een file aan genaamd `login-page.ts`; dit zal het nieuwe
-page object worden. Maak gebruik van jouw opgenomen test en volg het voorbeeld van Playwright zelf.
+Maak in de root van jouw project (dus naast de map `tests`) een nieuwe map aan genaamd `pageObjects`.
+Druk hiervoor in de Explorer met de rechtermuisknop op een leeg veld en kies voor **New Folder**. Maak
+in deze map een file aan genaamd `login-page.ts`; dit zal het nieuwe page object worden. Maak gebruik van jouw opgenomen test en volg het voorbeeld van Playwright zelf.
 Let erop dat je methodes beschrijvende namen krijgen. Maak een nieuwe test met de hand en maak gebruik
 van de POM. Vergelijk de 2 testen met elkaar. Wat heeft jouw voorkeur?
 
@@ -309,8 +319,33 @@ Speel eens wat met de 3 genoemde onderdelen.
 Ondertussen hebben we al een aardig framework staan. Tijd om te vergelijken met hoe de trainer het zou
 doen.
 
-De trainer's uitwerking staat al in jouw workspace in de map **`Valori-Playwright/`**. Open deze map en
-vergelijk jouw uitwerking met die van de trainer. Let op de volgende onderdelen:
+De uitwerking van de trainer staat op GitHub:
+<https://github.com/CeriosTesting/cerios-clinic-playwright>
+
+Clone deze repo naast jouw eigen project in de map `C:\GIT`:
+
+- Open in VS Code een terminal via **Terminal -> New Terminal**
+- Ga naar de GIT folder en clone de repo:
+
+  ```bash
+  cd C:\GIT
+  git clone https://github.com/CeriosTesting/cerios-clinic-playwright.git
+  ```
+
+- Open de repo in een nieuw VS Code venster, zodat jouw eigen project ook open blijft:
+
+  ```bash
+  code -n C:\GIT\cerios-clinic-playwright
+  ```
+
+  Werkt het `code` commando niet? Kies dan in VS Code in het menu **File -> New Window** en daarna
+  **File -> Open Folder …** -> open de map `C:\GIT\cerios-clinic-playwright`.
+
+- Vertrouw ook hier de auteurs ("Yes, I trust the authors")
+- Wil je de testen van de trainer ook draaien? Voer dan in de terminal van het nieuwe venster
+  `npm install` uit en kopieer `.env.sample` naar `.env` met de juiste waardes (zie Opdracht 12).
+
+Vergelijk nu jouw uitwerking met die van de trainer. Let op de volgende onderdelen:
 
 - `pageObjects/` — hoe zijn de Page Objects opgezet?
 - `tests/` — hoe zijn de testen gestructureerd?

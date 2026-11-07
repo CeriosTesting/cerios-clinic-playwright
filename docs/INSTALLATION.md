@@ -34,7 +34,7 @@ Volg de volgende stappen:
 - Doorloop de installatiewizard (waarschijnlijk slechts 1 scherm voor de configuratie)
 - Zorg er voor dat **'Use WSL 2 instead of Hyper-V (recommended)'** aanstaat
 
-  ![Docker Desktop configuration](docs/images/install/docker-desktop-configuration.png)
+  ![Docker Desktop configuration](images/install/docker-desktop-configuration.png)
 
 - Na installatie herstart je je computer.
 - Open Docker Desktop en wacht tot er staat **"Docker Desktop is running"**.
@@ -65,7 +65,7 @@ Dan gaan we nu beginnen met opzetten van een Playwright project.
 
 - Maak via een explorer (CTRL+E) een nieuwe map aan op jouw `C:` schijf genaamd **GIT**
 
-  ![GIT folder in de explorer](docs/images/install/git-folder-explorer.png)
+  ![GIT folder in de explorer](images/install/git-folder-explorer.png)
 
 
 - Maak in deze GIT folder weer een map aan genaamd **cerios-playwright**
@@ -73,7 +73,7 @@ Dan gaan we nu beginnen met opzetten van een Playwright project.
 - Klik in het menu op **File -> Open Folder …** -> open de zojuist aangemaakte folder
 - Natuurlijk vertrouw je jouw eigen spullen ("Yes, I trust the authors")
 
-  ![VS Code "Do you trust the authors" dialoog](docs/images/install/vscode-trust-authors-dialog.png)
+  ![VS Code "Do you trust the authors" dialoog](images/install/vscode-trust-authors-dialog.png)
 
 - Klik in het menu op **Terminal -> New Terminal** en er verschijnt een terminal onderin
 - Voer hier het volgende commando uit:
@@ -84,7 +84,7 @@ Dan gaan we nu beginnen met opzetten van een Playwright project.
 
 Het kan zijn dat je tegen het volgende aanloopt:
 
-![PowerShell execution policy error](docs/images/install/npm-execution-policy-error.png)
+![PowerShell execution policy error](images/install/npm-execution-policy-error.png)
 
 In dat geval helpt het volgende commando:
 
@@ -96,20 +96,20 @@ Beantwoord vervolgens de setup-vragen als volgt:
 
 - **Do you want to use TypeScript or JavaScript?** → TypeScript (enter)
 
-  ![TypeScript of JavaScript prompt](docs/images/install/playwright-init-typescript-prompt.png)
+  ![TypeScript of JavaScript prompt](images/install/playwright-init-typescript-prompt.png)
 
 - **Where do you want to put your tests?** → DEFAULT `tests` (enter)
 
-  ![Tests folder prompt](docs/images/install/playwright-init-tests-folder-prompt.png)
+  ![Tests folder prompt](images/install/playwright-init-tests-folder-prompt.png)
 
 - **Add a GitHub Actions workflow?** → false (n)
 
-  ![GitHub Actions workflow prompt](docs/images/install/playwright-init-github-actions-prompt.png)
+  ![GitHub Actions workflow prompt](images/install/playwright-init-github-actions-prompt.png)
 
 - **Install Playwright browsers (can be done manually via 'npx playwright install')?** → DEFAULT true
   (enter)
 
-  ![Install Playwright browsers prompt](docs/images/install/playwright-init-install-browsers-prompt.png)
+  ![Install Playwright browsers prompt](images/install/playwright-init-install-browsers-prompt.png)
 
 Nu worden alle browsers lokaal geïnstalleerd in jouw APPDATA. Dit is gelijk een mooi punt t.o.v. andere
 libraries zoals Selenium. Playwright maakt gebruik van zijn eigen browsers. Nooit meer driver updates om
@@ -119,6 +119,6 @@ een aantal folders en files zijn aangemaakt (`node_modules`, `tests`, `.gitignor
 
 - Verwijder de file `tests/example.spec.ts`, want wij gaan natuurlijk zelf onze testen maken.
 
-  ![VS Code explorer met example.spec.ts](docs/images/install/vscode-explorer-example-spec.png)
+  ![VS Code explorer met example.spec.ts](images/install/vscode-explorer-example-spec.png)
 
 Nu ben je ready steady voor de Playwright training. Tot snel!

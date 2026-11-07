@@ -242,6 +242,10 @@ Volg het onderdeel *"Basic: shared account in all tests"*. Kom je er niet uit? V
 Nu de login is opgeslagen, kan je in jouw testen de login-stappen weghalen en direct naar een pagina
 gaan, bijv. `await page.goto('/doctors')`.
 
+> **Tip:** `page.goto('/doctors')` werkt alleen als Playwright weet wat de basis-url is. Zet daarom in
+> `playwright.config.ts` onder `use` de regel met `baseURL` aan (haal de `//` weg) en vul de url van de
+> app in: `baseURL: 'http://localhost:5173',`
+
 Let op: nu start élke test ingelogd. Dat is niet handig voor testen die juist níet ingelogd moeten
 beginnen, zoals de registratietest (Opdracht 1) en de logintesten (Opdracht 9 en 10). Probeer maar
 eens: wat gebeurt er met jouw logintest? Zet voor deze testen de opgeslagen login uit door bovenin het
@@ -258,13 +262,26 @@ test.use({ storageState: { cookies: [], origins: [] } });
 Je hebt vast de gebruikersnaam en het wachtwoord nu in code getypt. Stel je voor dat je dit naar de
 GIT-omgeving van je werk gaat pushen? Dan heeft iedereen jouw gegevens. Dit is niet echt oké toch?
 
-De oplossing? **Environment Variables**. Ga naar de `playwright.config.ts` file. Lees de bovenste
-comment over `require('dotenv').config()`.
+De oplossing? **Environment Variables**. Die zetten we in een apart bestand `.env`. Playwright leest
+dit bestand niet zelf; daarvoor gebruiken we het package **dotenv**. Installeer dit eerst via de
+terminal:
 
-Maak een nieuwe file aan op het hoogste niveau van de repo. Druk rechtermuisknop op een leeg veld in de
-Explorer en kies voor **New File**. Noem de file `.env`; dit bestand zal alle omgevingsvariabelen
-bevatten die we nodig gaan hebben. Let op dat dit bestand donker grijs zal zijn in de Explorer. Dat is
-omdat dit bestand nooit naar de server gepushed mag worden — hier zitten immers credentials in.
+```bash
+npm install dotenv --save-dev
+```
+
+Ga daarna naar de `playwright.config.ts` file. Bovenin staat een comment *"Read environment variables
+from file"* met daaronder 3 regels die uitgezet zijn met `//`. Haal bij deze 3 regels de `//` weg:
+
+```ts
+import dotenv from 'dotenv';
+import path from 'path';
+dotenv.config({ path: path.resolve(__dirname, '.env') });
+```
+
+Maak nu een nieuwe file aan op het hoogste niveau van jouw project (dus naast `playwright.config.ts`).
+Druk rechtermuisknop op een leeg veld in de Explorer en kies voor **New File**. Noem de file `.env`;
+dit bestand zal alle omgevingsvariabelen bevatten die we nodig gaan hebben.
 
 Voeg de volgende variabelen toe aan jouw `.env` file:
 
@@ -274,8 +291,18 @@ PATIENT_EMAIL=patient.wilson@example.com
 PATIENT_PASSWORD=Patient1234!
 ```
 
-Nu kan je met `process.env` jouw environment variabelen ophalen. Het kan zijn dat er nu een
-warning/error ontstaat waar je dit wilt gaan toepassen… Waarom?
+Dit bestand mag nooit naar de server gepushed worden — hier zitten immers credentials in. Open daarom
+het bestand `.gitignore` en voeg onderaan deze regel toe:
+
+```
+.env
+```
+
+Nu kan je met `process.env` jouw environment variabelen ophalen. Vervang in `playwright.config.ts` de
+url bij `baseURL` door `process.env.BASE_URL`, en gebruik in jouw testen of page objects
+`process.env.PATIENT_EMAIL` en `process.env.PATIENT_PASSWORD` in plaats van de getypte waardes.
+
+Het kan zijn dat er nu een warning/error ontstaat waar je dit wilt gaan toepassen… Waarom?
 
 ---
 

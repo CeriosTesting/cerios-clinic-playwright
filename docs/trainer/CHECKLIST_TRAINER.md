@@ -8,20 +8,32 @@ Checklist voor de trainer, voor, tijdens en na de Playwright training.
 
 ### Repo klaarzetten
 
-- [ ] Maak de repo **public**:
-      GitHub → repo → **Settings** → **General** → onderaan bij **Danger Zone** →
-      **Change repository visibility** → **Make public**
-- [ ] **Archiveer** de repo:
-      GitHub → repo → **Settings** → **General** → **Danger Zone** → **Archive this repository**
+De repo is altijd **public**. `main` is beschermd met de ruleset **Protect main**, dus je hoeft
+de repo niet meer te archiveren of private te maken.
 
-      Een gearchiveerde repo is read-only: deelnemers kunnen de repo wel **clonen en gebruiken**,
-      maar niemand kan er nog naar **pushen** (ook geen issues of pull requests aanmaken).
-      Wil je later zelf nog iets aanpassen? Dan moet je de repo eerst weer **unarchiven**.
+- [ ] Controleer dat de ruleset **Protect main** nog actief is:
+      GitHub → repo → **Settings** → **Rules** → **Rulesets** →
+      <https://github.com/CeriosTesting/cerios-clinic-playwright/settings/rules>
+
+      De ruleset zorgt ervoor dat:
+      - wijzigingen op `main` alleen via een **pull request met minimaal 1 approval** kunnen
+        (**Require a pull request before merging** → **Required approvals: 1**);
+      - een approval vervalt als er daarna nieuwe commits worden gepusht
+        (**Dismiss stale pull request approvals when new commits are pushed**);
+      - `main` niet verwijderd of geforce-pusht kan worden (**Restrict deletions**,
+        **Block force pushes**).
+
+      Repo-admins (**Repository admin** in de **Bypass list**) mogen direct naar `main` pushen.
+      Deelnemers kunnen de repo **clonen en gebruiken**, maar niet naar `main` pushen.
+
+      Ruleset kwijt? Maak hem opnieuw aan via **New ruleset** → **New branch ruleset**: naam
+      **Protect main**, **Enforcement status: Active**, **Bypass list: Repository admin (Always
+      allow)**, **Target branches: Include default branch** en de rules hierboven.
 - [ ] Controleer in een incognito-venster (niet ingelogd) dat de repo bereikbaar is:
       <https://github.com/CeriosTesting/cerios-clinic-playwright>
-- [ ] Zet **GitHub Pages** aan voor de trainingswebsite (doe dit vóór het archiveren):
+- [ ] Controleer dat **GitHub Pages** aan staat voor de trainingswebsite:
       GitHub → repo → **Settings** → **Pages** → **Source: Deploy from a branch** → branch
-      **main**, map **/docs** → **Save**. Na een minuut staat de site op
+      **main**, map **/docs**. De site staat op
       <https://ceriostesting.github.io/cerios-clinic-playwright/>
 - [ ] Opdrachten aangepast in [OPDRACHTEN.md](../OPDRACHTEN.md)? Draai `npm run site` en commit
       ook `docs/training/index.html`, anders loopt de website achter
@@ -57,12 +69,5 @@ Checklist voor de trainer, voor, tijdens en na de Playwright training.
 
 ## Na de training
 
-- [ ] Zet GitHub Pages weer uit (**Settings** → **Pages** → **Unpublish site**), anders blijft de
-      site openbaar nadat de repo private is gemaakt (afhankelijk van het GitHub-abonnement)
-- [ ] Zet de repo terug:
-      - **Unarchive**: GitHub → repo → **Settings** → **General** → **Danger Zone** →
-        **Unarchive this repository**
-      - Maak de repo weer **private**: **Danger Zone** → **Change repository visibility** →
-        **Make private**
 - [ ] Verwerk de feedbackpunten van de deelnemers in de opdrachten en/of de uitwerking (indien
       aangeleverd)

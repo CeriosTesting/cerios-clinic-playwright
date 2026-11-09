@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Playwright Theater</title>
+<meta name="description" content="Cerios Academy — Playwright training Basics als theatervoorstelling. Gegenereerd uit OPDRACHTEN.md.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M10 14 C36 24 64 24 90 14 C94 60 76 90 50 96 C24 90 6 60 10 14Z' fill='%232EAD33'/%3E%3Cpath d='M30 64 q20 22 40 0 q-20 8 -40 0z' fill='%23222B45'/%3E%3C/svg%3E">
+<script>try{var t=localStorage.getItem('pwt:theme');if(t)document.documentElement.dataset.theme=JSON.parse(t)}catch(e){}</script>
+<style>
+{{STYLES}}
+</style>
+</head>
+<body>
+<a class="skip" href="#programma">Naar het programma</a>
+
+<!-- Colour-vision filters for the "Zaallicht" lab -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="sim-protan"><feColorMatrix type="matrix" values="0.567 0.433 0 0 0  0.558 0.442 0 0 0  0 0.242 0.758 0 0  0 0 0 1 0"/></filter>
+  <filter id="sim-deutan"><feColorMatrix type="matrix" values="0.625 0.375 0 0 0  0.7 0.3 0 0 0  0 0.3 0.7 0 0  0 0 0 1 0"/></filter>
+  <filter id="sim-tritan"><feColorMatrix type="matrix" values="0.95 0.05 0 0 0  0 0.433 0.567 0 0  0 0.475 0.525 0 0  0 0 0 1 0"/></filter>
+</svg>
+
+<div class="curtain" id="curtain" hidden role="dialog" aria-modal="true" aria-labelledby="curtain-title">
+  <div class="curtain-panel curtain-left" aria-hidden="true"></div>
+  <div class="curtain-panel curtain-right" aria-hidden="true"></div>
+  <div class="curtain-valance" aria-hidden="true"></div>
+  <div class="curtain-spot" aria-hidden="true"></div>
+  <div class="curtain-card">
+    <p class="curtain-presents">Cerios Academy presenteert</p>
+    <h1 id="curtain-title">Playwright</h1>
+    <p class="curtain-sub">Play your cards right<br>With the BASICS</p>
+    <p class="curtain-cast">Een voorstelling in acht aktes · met in de hoofdrol: <strong>jij</strong></p>
+    <button class="btn btn-mint" type="button" id="curtain-open">Doek op</button>
+    <p class="curtain-hint">Enter = doek op · Esc = overslaan</p>
+  </div>
+</div>
+
+<div id="page">
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Cerios Academy — naar boven">{{WORDMARK}}</a>
+  <nav class="chip-rail" aria-label="Aktes">{{RAIL}}</nav>
+  <div class="top-actions">
+    <a class="mood" href="#slotapplaus" data-mood>
+      <svg class="mood-mask" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+        <path class="mm-face" d="M10 14 C36 24 64 24 90 14 C94 60 76 90 50 96 C24 90 6 60 10 14Z"/>
+        <ellipse class="mm-eye mm-eye-l" cx="33" cy="44" rx="9" ry="4.5"/>
+        <ellipse class="mm-eye mm-eye-r" cx="67" cy="44" rx="9" ry="4.5"/>
+        <path class="mm-mouth" d="M32 70 Q50 70 68 70"/>
+      </svg>
+      <span class="mood-text" data-mood-text>0 / 0</span>
+    </a>
+    <button class="icon-btn" type="button" data-action="present" aria-label="Presentatiemodus (P)" title="Presentatiemodus (P)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/></svg>
+    </button>
+    <button class="icon-btn" type="button" data-action="theme" aria-label="Licht of donker thema (T)" title="Licht of donker thema (T)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" class="fill"/></svg>
+    </button>
+    <button class="icon-btn" type="button" data-action="help" aria-label="Sneltoetsen (?)" title="Sneltoetsen (?)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6"/><circle cx="12" cy="17" r=".6" class="fill"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-photo" aria-hidden="true">
+      <div class="stage-floor"></div>
+      <div class="stage-beam"></div>
+      {{MASKS}}
+    </div>
+    <div class="hero-text">
+      <p class="hero-tag">Discover the full potential of people and software</p>
+      <h1 id="hero-title">Playwright<span>Play your cards right</span><span>With the BASICS</span></h1>
+      <p class="hero-academy">Cerios Academy</p>
+      <p class="hero-lede">Welkom in het theater. Playwright betekent letterlijk <em>toneelschrijver</em>, dus vandaag schrijf jij het script. Acht aktes, veertien scènes en hier en daar een toegift.</p>
+      <div class="hero-cta">
+        <a class="btn btn-mint" href="#akte-1">Naar Akte I</a>
+        <a class="btn btn-ghost-light" href="#programma">Programmaboekje</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="voor-aanvang" aria-labelledby="va-title">
+    <div class="va-ticket" aria-hidden="true"><span>TOEGANGS&shy;BEWIJS</span><strong>Rij&nbsp;C · Stoel&nbsp;1</strong></div>
+    <div class="va-body">
+      <p class="kicker">Voor aanvang</p>
+      <h2 id="va-title">Waar speel je de scènes?</h2>
+      <div class="prose">{{VOOR_AANVANG}}</div>
+    </div>
+  </section>
+
+  <section class="programma" id="programma" aria-labelledby="programma-title">
+    <div class="playbill">
+      <p class="pb-kicker">Cerios Academy · Theater</p>
+      <h2 id="programma-title">Programma</h2>
+      <p class="pb-sub">Playwright — een voorstelling in acht aktes</p>
+      <ol class="pb-list">{{PLAYBILL}}</ol>
+      <p class="pb-legend"><span class="pb-dot is-done"></span> gespeeld <span class="pb-dot is-bonus"></span> toegift (bonus)</p>
+    </div>
+    <div class="rolverdeling">
+      <h3>Rolverdeling</h3>
+      <dl>
+        <div><dt>Hoofdrol</dt><dd>Jij</dd></div>
+        <div><dt>Regie</dt><dd>De trainer</dd></div>
+        <div><dt>Tegenspeler</dt><dd>Cerios Clinic — Patient Portal</dd></div>
+        <div><dt>Decor</dt><dd>Docker</dd></div>
+        <div><dt>Souffleur</dt><dd><a href="#akte-1">Codegen</a></dd></div>
+        <div><dt>Inspecteur</dt><dd><a href="#akte-2">Trace viewer</a></dd></div>
+        <div><dt>Belichting</dt><dd><a href="#akte-3">Locators</a></dd></div>
+        <div><dt>Script</dt><dd><a href="#akte-4">Page Object Model</a></dd></div>
+        <div><dt>Portier</dt><dd><a href="#akte-5">Storage state</a></dd></div>
+        <div><dt>Zaalwacht</dt><dd><a href="#akte-6">axe</a></dd></div>
+        <div><dt>Ensemble</dt><dd><a href="#akte-7">Workers</a></dd></div>
+        <div><dt>Recensent</dt><dd><a href="#akte-8">Jij, alweer</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="ouverture" aria-labelledby="ouverture-title">
+    <header class="deel">
+      <p class="kicker">Ouverture</p>
+      <h2 id="ouverture-title">Voordat het doek opgaat</h2>
+    </header>
+    <div class="ov-grid">
+      <article class="ov-card">
+        <p class="kicker">Playwright</p>
+        <h3>Wie is de toneelschrijver?</h3>
+        <p>Sinds januari 2020 voor het eerst aangekondigd door Microsoft. Gemaakt door een team dat eerder aan soortgelijke projecten werkte, bijvoorbeeld Puppeteer van Google.</p>
+        <ul class="pill-list"><li>Open source</li><li>Een library, geen framework</li><li>Node.js, Python, Java en .NET</li></ul>
+      </article>
+      <article class="ov-card">
+        <p class="kicker">Highlights</p>
+        <h3>Waar zie je ze terug?</h3>
+        <ul class="hl-chips">
+          <li><a href="#akte-1">Codegen <span>Akte I</span></a></li>
+          <li><a href="#scene-1-3">Web-first assertions <span>Akte I</span></a></li>
+          <li><a href="#akte-2">Trace viewer <span>Akte II</span></a></li>
+          <li><a href="#akte-3">Auto-wait <span>Akte III</span></a></li>
+          <li><a href="#akte-5">Log in once <span>Akte V</span></a></li>
+          <li><a href="#akte-7">Cross-browser <span>Akte VII</span></a></li>
+          <li><a href="#akte-7">Parallel <span>Akte VII</span></a></li>
+        </ul>
+      </article>
+      <article class="ov-card">
+        <p class="kicker">Prerequisites</p>
+        <h3>Benodigdheden</h3>
+        <ul class="pill-list"><li>NodeJs</li><li>VS Code</li><li>Playwright</li><li>Docker</li></ul>
+        <p><a href="{{INSTALLATION_URL}}" target="_blank" rel="noopener">Installatiehandleiding (INSTALLATION.md)</a></p>
+      </article>
+      <article class="ov-card">
+        <p class="kicker">System under Test</p>
+        <h3>Het decor: Cerios Clinic</h3>
+        <p>Drie applicaties, één ecosysteem om te testen: Doctor, Assistant en Patient Portal. Wij spelen in het <strong>Patient Portal</strong>.</p>
+        <ul class="pill-list"><li>Patient Portal: <code>http://localhost:5173</code></li><li>Mailbox (Mailpit): <code>http://localhost:8025</code></li></ul>
+        <p><a href="{{CLINIC_START_URL}}" target="_blank" rel="noopener">Zo start je de Cerios Clinic</a></p>
+      </article>
+    </div>
+  </section>
+
+  {{ACTS}}
+
+  <section class="curtain-call" id="slotapplaus" aria-labelledby="cc-title">
+    <div class="cc-inner">
+      <div class="cc-masks" aria-hidden="true">{{MASKS}}</div>
+      <p class="kicker">Slotapplaus</p>
+      <h2 id="cc-title">Curtain call</h2>
+      <p class="cc-status" data-cc-status>De voorstelling is nog bezig.</p>
+      <ul class="cc-todo" data-cc-todo></ul>
+      <div class="bravo" data-bravo hidden>
+        <label class="bravo-label" for="bravo-name">Jouw naam op het affiche</label>
+        <input class="bravo-input" id="bravo-name" type="text" autocomplete="name" placeholder="Bijv. Romeo Montague">
+        <div class="bravo-card" id="bravo-card">
+          <p class="bc-kicker">Cerios Academy · Playwright Basics</p>
+          <p class="bc-bravo">Bravo,</p>
+          <p class="bc-name" data-bravo-name>hoofdrolspeler</p>
+          <p class="bc-line">speelde alle aktes van <em>Playwright — Play your cards right</em><span data-bravo-encore></span></p>
+          <p class="bc-date" data-bravo-date></p>
+          <div class="bc-brand">{{WORDMARK}}</div>
+        </div>
+        <div class="bravo-actions">
+          <button class="btn btn-mint" type="button" data-action="applause">Nog een applaus</button>
+          <button class="btn btn-ghost" type="button" data-action="print">Print je affiche</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div>
+    <span class="foot-brand">{{WORDMARK}}</span>
+    <p>Deze site is gegenereerd uit <a href="{{OPDRACHTEN_URL}}" target="_blank" rel="noopener">OPDRACHTEN.md</a> op {{BUILD_DATE}}. Liever gewone tekst? OPDRACHTEN.md is en blijft de bron.</p>
+    <p>Repo met de uitwerking van de trainer: <a href="{{REPO_URL}}" target="_blank" rel="noopener">CeriosTesting/cerios-clinic-playwright</a></p>
+  </div>
+  <div class="foot-actions">
+    <button class="btn btn-ghost" type="button" data-action="curtain">Doek nog eens (C)</button>
+    <button class="btn btn-ghost" type="button" data-action="reset">Voortgang wissen</button>
+  </div>
+</footer>
+</div>
+
+<div class="simbar" id="simbar" hidden role="status">
+  <span>Zaallicht: <strong data-sim-name></strong></span>
+  <button class="btn btn-mint" type="button" data-action="sim-off">Normaal licht (Esc)</button>
+</div>
+
+<div class="presenter" id="presenter" hidden role="dialog" aria-modal="true" aria-label="Presentatiemodus">
+  <div class="presenter-stage">{{PRESENTER}}</div>
+  <div class="presenter-ui">
+    <button class="icon-btn" type="button" data-action="slide-prev" aria-label="Vorige dia">←</button>
+    <span data-slide-count>1</span>
+    <button class="icon-btn" type="button" data-action="slide-next" aria-label="Volgende dia">→</button>
+    <button class="icon-btn" type="button" data-action="present-close" aria-label="Presentatiemodus sluiten (Esc)">✕</button>
+  </div>
+</div>
+
+<dialog class="help" id="help" aria-labelledby="help-title">
+  <h2 id="help-title">Sneltoetsen</h2>
+  <dl>
+    <div><dt><kbd>←</kbd> <kbd>→</kbd></dt><dd>Vorige / volgende akte (of dia)</dd></div>
+    <div><dt><kbd>P</kbd></dt><dd>Presentatiemodus: de aktes als dia's (<kbd>F</kbd> = volledig scherm)</dd></div>
+    <div><dt><kbd>C</kbd></dt><dd>Doek nog een keer</dd></div>
+    <div><dt><kbd>T</kbd></dt><dd>Licht / donker</dd></div>
+    <div><dt><kbd>Esc</kbd></dt><dd>Sluiten · zaallicht normaal</dd></div>
+    <div><dt><kbd>?</kbd></dt><dd>Deze hulp</dd></div>
+  </dl>
+  <form method="dialog"><button class="btn btn-mint">Sluiten</button></form>
+</dialog>
+
+<aside class="toast" id="toast" hidden role="status" aria-live="polite"></aside>
+<canvas class="confetti" id="confetti" aria-hidden="true"></canvas>
+
+<script id="site-data" type="application/json">{{DATA}}</script>
+<script>
+{{SCRIPT}}
+</script>
+</body>
+</html>

@@ -19,6 +19,12 @@ Checklist voor de trainer, voor, tijdens en na de Playwright training.
       Wil je later zelf nog iets aanpassen? Dan moet je de repo eerst weer **unarchiven**.
 - [ ] Controleer in een incognito-venster (niet ingelogd) dat de repo bereikbaar is:
       <https://github.com/CeriosTesting/cerios-clinic-playwright>
+- [ ] Zet **GitHub Pages** aan voor de trainingswebsite (doe dit vóór het archiveren):
+      GitHub → repo → **Settings** → **Pages** → **Source: Deploy from a branch** → branch
+      **main**, map **/docs** → **Save**. Na een minuut staat de site op
+      <https://ceriostesting.github.io/cerios-clinic-playwright/>
+- [ ] Opdrachten aangepast in [OPDRACHTEN.md](../OPDRACHTEN.md)? Draai `npm run site` en commit
+      ook `docs/training/index.html`, anders loopt de website achter
 
 ### Deelnemers informeren
 
@@ -27,6 +33,8 @@ Checklist voor de trainer, voor, tijdens en na de Playwright training.
 - [ ] **Een uur van tevoren:** deel de **URL van de GitHub repo** met de deelnemers, zodat ze de opdrachten
       ([OPDRACHTEN.md](../OPDRACHTEN.md)) kunnen openen:
       <https://github.com/CeriosTesting/cerios-clinic-playwright/blob/main/docs/OPDRACHTEN.md>
+      en de trainingswebsite als extraatje: <https://ceriostesting.github.io/cerios-clinic-playwright/>
+
 ### Omgeving
 
 - [ ] Controleer dat de Cerios Clinic app start via de stappen in
@@ -49,6 +57,8 @@ Checklist voor de trainer, voor, tijdens en na de Playwright training.
 
 ## Na de training
 
+- [ ] Zet GitHub Pages weer uit (**Settings** → **Pages** → **Unpublish site**), anders blijft de
+      site openbaar nadat de repo private is gemaakt (afhankelijk van het GitHub-abonnement)
 - [ ] Zet de repo terug:
       - **Unarchive**: GitHub → repo → **Settings** → **General** → **Danger Zone** →
         **Unarchive this repository**

@@ -13,6 +13,10 @@ vergelijken met een referentie-implementatie.
 - **[OPDRACHTEN.md](docs/OPDRACHTEN.md)** — de trainingsopdrachten zelf, opgedeeld in modules: record &
   playback, de trace viewer, locators, DRY met het Page Object Model, storage state, accessibility
   testing en test-configuratie.
+- **[Trainingswebsite](docs/training/index.html)** — dezelfde opdrachten als interactieve "theatervoorstelling"
+  in Cerios-stijl, met mini-oefeningen per hoofdstuk, voortgang en een presentatiemodus. Open
+  `docs/training/index.html` in de browser of via GitHub Pages. De site wordt gegenereerd uit
+  OPDRACHTEN.md (`npm run site`); OPDRACHTEN.md blijft de bron en de fallback.
 - De rest van de repo (**`tests/`**, **`pageObjects/`**, **`enums/`**) is de uitgewerkte oplossing
   van diezelfde opdrachten — bedoeld om na afloop mee te vergelijken (zie sectie 8 van [OPDRACHTEN.md](docs/OPDRACHTEN.md)).
 
@@ -26,6 +30,7 @@ playwright.config.ts   Projecten (setup/chromium), storage state, parallelisatie
 .env.sample        Voorbeeld env-variabelen (BASE_URL, patiënt-credentials)
 docs/              Installatiehandleiding, opdrachten en Cerios Clinic startinstructies
 docs/trainer/      Checklist voor de trainer
+docs/training/     Trainingswebsite (index.html is gegenereerd; bronbestanden in src/, build.mjs bouwt)
 ```
 
 ## Aan de slag

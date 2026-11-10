@@ -14,8 +14,9 @@ vergelijken met een referentie-implementatie.
   playback, de trace viewer, locators, DRY met het Page Object Model, storage state, accessibility
   testing en test-configuratie.
 - **[Trainingswebsite](docs/training/index.html)** — dezelfde opdrachten als interactieve "theatervoorstelling"
-  in Cerios-stijl, met mini-oefeningen per hoofdstuk, voortgang en een presentatiemodus. Open
-  `docs/training/index.html` in de browser of via GitHub Pages. De site wordt gegenereerd uit
+  in Cerios-stijl, met mini-oefeningen per hoofdstuk, voortgang en een presentatiemodus. Online via
+  GitHub Pages: <https://ceriostesting.github.io/cerios-clinic-playwright/training/>, of open
+  `docs/training/index.html` lokaal in de browser. De site wordt gegenereerd uit
   OPDRACHTEN.md (`npm run site`); OPDRACHTEN.md blijft de bron en de fallback.
 - De rest van de repo (**`tests/`**, **`pageObjects/`**, **`enums/`**) is de uitgewerkte oplossing
   van diezelfde opdrachten — bedoeld om na afloop mee te vergelijken (zie sectie 8 van [OPDRACHTEN.md](docs/OPDRACHTEN.md)).

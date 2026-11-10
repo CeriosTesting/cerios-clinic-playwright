@@ -34,7 +34,7 @@ de repo niet meer te archiveren of private te maken.
 - [ ] Controleer dat **GitHub Pages** aan staat voor de trainingswebsite:
       GitHub → repo → **Settings** → **Pages** → **Source: Deploy from a branch** → branch
       **main**, map **/docs**. De site staat op
-      <https://ceriostesting.github.io/cerios-clinic-playwright/>
+      <https://ceriostesting.github.io/cerios-clinic-playwright/training/>
 - [ ] Opdrachten aangepast in [OPDRACHTEN.md](../OPDRACHTEN.md)? Draai `npm run site` en commit
       ook `docs/training/index.html`, anders loopt de website achter
 
@@ -45,7 +45,7 @@ de repo niet meer te archiveren of private te maken.
 - [ ] **Een uur van tevoren:** deel de **URL van de GitHub repo** met de deelnemers, zodat ze de opdrachten
       ([OPDRACHTEN.md](../OPDRACHTEN.md)) kunnen openen:
       <https://github.com/CeriosTesting/cerios-clinic-playwright/blob/main/docs/OPDRACHTEN.md>
-      en de trainingswebsite als extraatje: <https://ceriostesting.github.io/cerios-clinic-playwright/>
+      en de trainingswebsite als extraatje: <https://ceriostesting.github.io/cerios-clinic-playwright/training/>
 
 ### Omgeving
 
@@ -62,7 +62,8 @@ de repo niet meer te archiveren of private te maken.
 - [ ] Laat iedereen bij de start de Cerios Clinic app starten via
       [CERIOS_CLINIC_START.md](../CERIOS_CLINIC_START.md):
       <https://github.com/CeriosTesting/cerios-clinic-playwright/blob/main/docs/CERIOS_CLINIC_START.md>
-- [ ] Deel de URL van de repo / opdrachten nogmaals (bijv. in de chat of op het scherm)
+- [ ] Deel de URL van de repo / opdrachten nogmaals (bijv. in de chat of op het scherm), en de
+      trainingswebsite: <https://ceriostesting.github.io/cerios-clinic-playwright/training/>
 - [ ] Wijs bij sectie 8 van de opdrachten op het clonen van de uitwerking van de trainer
 
 ---

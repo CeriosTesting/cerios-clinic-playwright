@@ -80,7 +80,8 @@ Neem een nieuwe test op. Navigeer naar `http://localhost:5173/register` en doorl
 registratieformulier. Verifieer dat het successcherm het door jou ingevoerde e-mailadres toont.
 Kijk in de recording browser bovenin met welke opties je een expect/assert/verify kan doen.
 
-In de emailbox (http://localhost:8025) kan je je email bevestigen. Voor nu prima om dat handmatig te doen. Dit helpt voor de volgende opdrachten. Log nu uit.
+**Bonus:** open de mailbox (<http://localhost:8025>) en bevestig je e-mailadres. Voor nu prima om dat
+handmatig te doen. In komende opdrachten werken we met een vooraf ingespoeld account, omdat deze ook al afspraken en een medische historie heeft.
 
 ### 1.2 Opdracht 2
 
